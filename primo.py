@@ -2,6 +2,8 @@ import unittest
 
 
 def is_primo(value):
+    if value == 0:
+        return False
     for div in range(2, value):
         if value % div == 0:
             return False 
@@ -29,6 +31,14 @@ class TestPrimos(unittest.TestCase):
     def test_21(self):
         result = is_primo(21)
         self.assertEqual(result, False)
+
+    def test_0(self):
+        result = is_primo(0)
+        self.assertEqual(result, False)
+
+    def test_193(self):
+        result = is_primo(193)
+        self.assertEqual(result, True)
 
 if __name__ == "__main__":
     unittest.main()
